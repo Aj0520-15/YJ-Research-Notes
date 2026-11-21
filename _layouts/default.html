@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+</head>
+<body>
+
+<nav class="side">
+  <a href="{{ '/' | relative_url }}" {% if page.nav == 'home' %}class="active"{% endif %}>Home</a>
+  <a href="{{ '/notes/' | relative_url }}" {% if page.nav == 'notes' or page.layout == 'note' %}class="active"{% endif %}>Notes</a>
+</nav>
+
+<main>
+{{ content }}
+</main>
+
+<script>
+  // Fade out before leaving for another page on this site; fade in is handled in CSS.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a');
+    if (!a || a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    if (a.origin !== location.origin || a.href.indexOf('mailto:') === 0) return;
+    if (a.pathname === location.pathname) return;
+    e.preventDefault();
+    document.body.classList.add('leaving');
+    setTimeout(function () { location.href = a.href; }, 300);
+  });
+  // Back/forward cache: make sure the page is visible again.
+  window.addEventListener('pageshow', function () { document.body.classList.remove('leaving'); });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+title: YJ Research Notes
+author: Yujun Ji
+description: Reports and my humble opinions on North American and Asian public equities, private equity deals and long-term forecasts.
+
+# If your repo is named <username>.github.io, leave baseurl empty.
+# If it has any other name (e.g. "research"), set baseurl: "/research"
+baseurl: ""
+url: ""
+
+linkedin: https://www.linkedin.com/in/alex-ji-5436082b4
+email: alex.ji0520@gmail.com
+
+markdown: kramdown
+timezone: Asia/Shanghai
+future: true
+permalink: /notes/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: note
+
+exclude:
+  - README.md
+  - .pages.yml
