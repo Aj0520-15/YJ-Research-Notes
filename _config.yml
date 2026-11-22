@@ -4,7 +4,7 @@ description: Reports and my humble opinions on North American and Asian public e
 
 # If your repo is named <username>.github.io, leave baseurl empty.
 # If it has any other name (e.g. "research"), set baseurl: "/research"
-baseurl: "/YJ-Research-Notes"
+baseurl: ""
 url: "https://aj0520-15.github.io"
 
 linkedin: https://www.linkedin.com/in/alex-ji-5436082b4
